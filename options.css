@@ -1,0 +1,86 @@
+A:link {text-decoration: none; color:#000000;}
+A:visited {text-decoration: none; color:#000000;}
+A:active {text-decoration: none; color:#000000;}
+A:hover {text-decoration: none; color:#000000;}
+
+body{
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    color:black;
+    background-color: #017F7E;
+}
+
+div.wrapper{
+    width: 400px;
+    margin: 0px auto;
+    margin-top: 40px;
+    background-color: #fff;
+}
+
+div.menu{
+    background-color: #dcdcdc;
+    padding: 20px;
+    font-size: 20px;
+    color: #000000;
+    text-shadow: #ffffff 0px 1px 0px;
+    text-align: center;
+}
+
+div.options_header{
+    font-size: 15px;
+    background-color: #ccc;
+    padding: 1px;
+}
+
+div.header{
+    padding-top: 200px;	
+    width: 650px;
+    margin: 0px auto;
+    padding-bottom: 10px;
+    height: 75px;
+}
+
+div.header div.logo{
+    margin: 0px auto;
+    width: 300px;
+    float: left;
+}
+
+div.header div.navbar{
+    width: 300px;
+    float: right;
+    text-align: center;
+    height: 30px;
+    padding-top: 35px;
+}
+
+div.content{
+    padding: 0px 15px 15px 15px;
+}
+
+div.content div.title{
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+div.footer{
+    text-align: center;
+    font-size: 10px;
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+#qrcodeadiv {
+    margin-top:15px;
+}
+
+#status,#priceBox, #currencyBox, #timerBox, #brokersBox, #aboutBox, #qrcodeimg
+{
+    display:none;
+    background:#ffffff;
+    text-align: center;
+}
+#saveBox {
+    padding-top:15px;
+    text-align:center;
+}

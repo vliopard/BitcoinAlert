@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
+    <head>
+        <title>Bitcoin Alert - Settings</title>
+        <link rel="stylesheet" type="text/css" href="options.css" />
+    </head>
+    <body>
+
+        <div class="wrapper" style="width: 400px">
+            <div class="menu options_header">
+                <h1>Options</h1>
+            </div>
+            <div class="menu">
+                <a href="#" id="priceLink">Price</a> |  <a href="#" id="timerLink">Timer</a> | <a href="#" id="brokersLink">Brokers</a> | <a href="#" id="aboutLink">About</a>
+            </div>
+            <div class="inner">
+                <div class="content">
+                    <div id="priceBox">
+                        <h3>Threshold</h3>
+                        <div>Percent threshold: <input id="percent" type="number" step="1" value="5"/>%</div>
+						<div>Target value: <span class="selectedCurrency">XXX</span> <input id="target" type="number" step="1" value="400.00"/></div>
+                        <h3>Threshold prices</h3>
+                        <div>Bitcoin: <span class="selectedCurrency">XXX</span> <span id="price">0</span> (<span class="selectedCurrency">XXX</span> <span id="lprice">0</span>)<br> <span class="dtime">XXX</span> </div>
+                        <h3>Selected currency: </h3>
+                        <select id="currency">
+                            <option value="USD$">American Dollar</option>
+                            <option value="AUD">Australian dollar</option>
+							<option value="R$">Brazilian Real</option>
+                            <option value="CAD">Canadian dollar</option>
+                            <option value="CNY">Chinese yan</option>
+                            <option value="CZK">Czech koruna</option>
+                            <option value="DKK">Danish krone</option>
+                            <option value="EUR">Euro</option>
+                            <option value="GBP">Great Britain pound</option>
+                            <option value="HKD">Hongkong dollar</option>
+                            <option value="NZD">New Zealand dollar</option>
+                            <option value="NOK">Norwegian krone</option>
+                            <option value="PLN">Polish zloty</option>
+                            <option value="RUB">Russian ruble</option>
+                            <option value="SGD">Singapore dollar</option>
+                            <option value="CHF">Swiss franc</option>
+                            <option value="THB">Thai baht</option>
+                        </select>
+                    </div>
+                    <div id="timerBox">
+                        <h3>Timer</h3>
+                        Time in minutes: <input id="timer" type="number" step="1" value="15"/>
+                    </div>
+                    <div id="brokersBox">
+                        <h3>Brokers</h3>
+                        <a href="https://www.mercadobitcoin.net/">Mercado Bitcoin</a>
+                    </div>
+                    <div id="aboutBox">
+                        <h3>Bitcoin Alert v2.0</h3>
+                        Just yet another chrome extension to check bitcoin values.<br>
+                        Make a donation to the following address:
+                        <div id="qrcodeadiv"><strong><a href="#" id="qrcodea">Show QR Code</a></strong></div>
+                        <div id="qrcode"><img id="qrcodeimg" src="qr.png" alt="Bitcoin wallet QR Code"/><br><b>19JQZ51NYbdp8XfR6oG7YuSnhSs6uzdW68</b></div>
+                    </div>
+                    <div id="saveBox">
+                        <button id="save">Save settings</button>
+                        <div id="status">Settings saved!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            &copy; vliopard / OTDS H Co. | Vincent Liopard. is a BIUCS Project.
+        </div>
+        <script src="jquery.min.js"></script>
+        <script src="options.js"></script>
+    </body>
+</html>
