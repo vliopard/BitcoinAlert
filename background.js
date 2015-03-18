@@ -7,7 +7,7 @@ var lowPrice = 90000000;
 var savedPrice = 0;
 var upperbound = 0;
 var lowerbound = 0;
-var tempPrice = 0;
+var tempPrice = 0.00;
 
 var id = 0;
 
@@ -29,7 +29,6 @@ $(document).ready(function() {
         var currencyO = fetchedData.bitcoinalert_currency;
         if (currencyO)
             currency = currencyO;
-        console.log(currency);
     });
     chrome.storage.local.get("bitcoinalert_timer", function(fetchedData) {
         var timerO = fetchedData.bitcoinalert_timer;
@@ -60,7 +59,7 @@ function checkCourses() {
 	xhr.onreadystatechange = function() {
 	  if (xhr.readyState == 4) {
 		var elem = xhr.responseText;
-		var sin = elem.indexOf("sell");
+		var sin = elem.indexOf("last");
 		var aux = elem.substring(sin);
 		var a = aux.indexOf(":");
 		var b = aux.indexOf(".");
@@ -79,23 +78,28 @@ function checkCourses() {
         if (priceL)
             lowPrice = parseFloat(priceL);
     });
-				
+		var dPrice = 0.00;
 		if(parseFloat(tempPrice) < parseFloat(lowPrice))
 		{
 			alert("R$ "+lowPrice+" > R$ "+tempPrice+" "+dtime);
+			dPrice = parseFloat(lowPrice) - parseFloat(tempPrice);
 			chrome.browserAction.setIcon({path:"icon_alert.png"});
-			showNotification(tempPrice, "down");
+			showNotification(tempPrice, "down", dPrice);
 			chrome.storage.local.set({
 				'bitcoinalert_lprice': tempPrice});
+		}
+		else
+		{
+			dPrice = parseFloat(tempPrice) - parseFloat(lowPrice);
 		}
 		if (savedPrice !== 0) {
 			upperbound = (parseInt(savedPrice) + (savedPrice * (percent / 100)));
 			lowerbound = (savedPrice - (savedPrice * (percent / 100)));
-			if (tempPrice > upperbound) {
-				showNotification(tempPrice, "up");
+			if (tempPrice.toFixed(2) > upperbound.toFixed(2)) {
+				showNotification(tempPrice, "up", dPrice);
 			}
-			if (tempPrice < lowerbound) {
-				showNotification(tempPrice, "down");
+			if (tempPrice.toFixed(2) < lowerbound.toFixed(2)) {
+				showNotification(tempPrice, "down", dPrice);
 			}
 		}		
 		savedPrice = tempPrice;
@@ -114,18 +118,16 @@ function startTimer() {
 function callback() {
 }
 
-function showNotification(price, direction) {
-	alert("notif");
+function showNotification(price, direction, change) {
     var icon = "icon_up.png";
     if (direction === "down")
         icon = "icon_down.png";
     var opt = {
         type: "basic",
-        title: "Price " + direction + " at least " + percent + "%",
-        message: "B 1.00 = " + currency + " " + price + " "+ dtime,
+        title: "Price " + direction + " " + currency + " " + change.toFixed(2),
+        message: "B 1.00 = " + currency + " " + price + " ["+ dtime +"]",
         iconUrl: icon
     }
     chrome.notifications.create(id.toString(), opt, callback);
     id++;
-    console.log(opt.message);
 }

@@ -8,11 +8,12 @@
    },
    "description": "A Bitcoin alert for monitoring value changes.",
    "icons": {
-      "128": "icon.png"
+      "48": "icon-48.png",
+      "128": "icon-128.png"
    },
    "manifest_version": 2,
    "name": "Bitcoin Alert",
    "options_page": "options.html",
    "permissions": [ "https://www.mercadobitcoin.net/api/ticker/", "alarms", "background", "notifications", "storage" ],   
-   "version": "2.0"
+   "version": "2.1"
 }
