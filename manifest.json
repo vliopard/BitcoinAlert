@@ -15,5 +15,5 @@
    "name": "Bitcoin Alert",
    "options_page": "options.html",
    "permissions": [ "https://www.mercadobitcoin.net/api/ticker/", "alarms", "background", "notifications", "storage" ],   
-   "version": "2.1"
+   "version": "2.2"
 }
