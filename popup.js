@@ -111,8 +111,8 @@ function notify_me() {
 		
     var opt = {
         type: "basic",
-		title: "Price " + direction + " " + currency + " " + change.toFixed(2) + " /\\ " + delt.toFixed(2),
-        message: "B 1.00 = " + currency + " " + savedPrice.toFixed(2) + " ["+ dtime +"]",
+		title: "Price " + direction + " " + currency + " " + parseFloat(change).toFixed(2) + " /\\ " + delt.toFixed(2),
+        message: "B 1.00 = " + currency + " " + parseFloat(savedPrice).toFixed(2) + " ["+ dtime +"]",
         iconUrl: icon
     }
     chrome.notifications.create(id.toString(), opt, callback);

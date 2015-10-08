@@ -89,7 +89,7 @@ function restore_options() {
         var price = fetchedData.bitcoinalert_price;
         if (!price)
             return;
-        $('#price').text(price);
+        $('#price').text(parseFloat(price).toFixed(2));
     });
 
     chrome.storage.local.get("bitcoinalert_lprice", function(fetchedData) {
